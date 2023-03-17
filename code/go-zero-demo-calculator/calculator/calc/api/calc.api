@@ -1,0 +1,27 @@
+type (
+	AddReq {
+		A int64 `json:"a"`
+		B int64 `json:"b"`
+	}
+
+	AddReply {
+		Res int64 `json:"res"`
+	}
+
+	MulReq {
+		A int64 `json:"a"`
+		B int64 `json:"b"`
+	}
+
+	MulReply {
+		Res int64 `json:"res"`
+	}
+)
+
+service calc-api {
+	@handler add
+	get /calc/add (AddReq) returns (AddReply)
+	
+	@handler mul
+	get /calc/mul (MulReq) returns (MulReply)
+}
